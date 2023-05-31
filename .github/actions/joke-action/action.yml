@@ -5,6 +5,12 @@ description: "use external API to retrieve and display joke"
 outputs:
   joke-output:
     description: The resulting joke from the api call
-runs:
-  using: "node16"
-  main: "main.js"
+
+jobs:
+  joker:
+    steps:
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "16"
+      - run: npm install
+      - run: node main.js
