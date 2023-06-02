@@ -1,16 +1,11 @@
 name: "my joke action"
 
-description: "use external API to retrieve and display joke"
+description: "use an external API to retrieve and display a joke"
 
 outputs:
   joke-output:
-    description: The resulting joke from the api call
+    description: The resulting joke from the icanhazdadjokes API
 
-jobs:
-  joker:
-    steps:
-      - uses: actions/setup-node@v3
-        with:
-          node-version: "16"
-      - run: npm install
-      - run: node main.js
+runs:
+  using: "node16"
+  main: "main.js"
